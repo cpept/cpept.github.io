@@ -8,116 +8,117 @@
     <title>cpept</title>
     <meta name="description" content="介绍">
     <meta name="Keywords" content="关键字">
-    <link rel="shortcut icon" href="favicon.ico" /> 
+    <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="css/bass.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
+    <script src="js/jQuery.mini.js"></script>
     <script src="js/common.js"></script>
-
-    <!-- 这个animate.js 必须写到 index.js的上面引入 -->
-    <script src="js/animate.js"></script>
-    
-    <!-- 引入我们首页的js文件 -->
-    <script src="js/index.js"></script>
-    
 
 </head>
 
 <body>
     <!-- 头部区域 start -->
-    <div class="header w">
-        <!-- logo区域 -->
-        <div class="logo">
-            <h1>
-                <a href="index.html" title="cpept">cpept</a>
-            </h1>
+    <header class="h-fixed h-transparent">
+        <div class="header w">
+            <!-- logo区域 -->
+            <div class="logo">
+                <h1>
+                    <a href="index.html" title="cpept">cpept</a>
+                </h1>
+            </div>
+            <!-- nav导航栏 -->
+            <ul class="nav">
+                <li>
+                    <a href="#">HOME</a>
+                </li>
+                <li>
+                    <a href="#">ABOUT US</a>
+                    <ul>
+                        <li>
+                            <a href="">About</a>
+                        </li>
+                        <li>
+                            <a href="">Management team</a>
+                        </li>
+                        <li>
+                            <a href="">Job opportunities</a>
+                        </li>
+                        <li>
+                            <a href="">customer service</a>
+                        </li>
+                        <li>
+                            <a href="">help</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">PRODUCTS</a>
+                    <ul>
+                        <li>
+                            <a href="">Internal Floating Roof</a>
+                        </li>
+                        <li>
+                            <a href="">Floating Roof Seals</a>
+                        </li>
+                        <li>
+                            <a href="">Floating Suction Unit</a>
+                        </li>
+                        <li>
+                            <a href="">Ship-to Dock Safety Units</a>
+                        </li>
+                        <li>
+                            <a href="">Steam-water Separation Heater</a>
+                        </li>
+                        <li>
+                            <a href="">Tank Rotary Spray System</a>
+                        </li>
+                        <li>
+                            <a href="">Waste Oil Recovery Treatment System</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">PARTNERS</a>
+                    <ul>
+                        <li>
+                            <a href="">SINOPEC</a>
+                        </li>
+                        <li>
+                            <a href="">PetroChina</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li><a href="#">SERVICE</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
         </div>
-        <!-- nav导航栏 -->
-        <ul class="nav">
-            <li>
-                <a href="#">HOME</a>
-            </li>
-            <li>
-                <a href="#">ABOUT US</a>
-                <ul>
-                    <li>
-                        <a href="">私信gfag</a>
-                    </li>
-                    <li>
-                        <a href="">评论gdfag</a>
-                    </li>
-                    <li>
-                        <a href="">a我</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">PRODUCTS</a>
-                <ul>
-                    <li>
-                        <a href="">Internal Floating Roof</a>
-                    </li>
-                    <li>
-                        <a href="">Floating Roof Seals</a>
-                    </li>
-                    <li>
-                        <a href="">Floating Suction Unit</a>
-                    </li>
-                    <li>
-                        <a href="">Ship-to Dock Safety Units</a>
-                    </li>
-                    <li>
-                        <a href="">Steam-water Separation Heater</a>
-                    </li>
-                    <li>
-                        <a href="">Tank Rotary Spray System</a>
-                    </li>
-                    <li>
-                        <a href="">Waste Oil Recovery Treatment System</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="#">PARTNERS</a></li>
-            <li><a href="#">SERVICE</a></li>
-            <li><a href="#">CONTACT US</a></li>
-        </ul>
-   
-        
-
-
-    </div>
+    </header>
     <!-- 头部区域 end -->
+
     <!-- banner区域 start -->
-    <div class="main">
+    <div class="main" id="mask">
 
         <div class="focus fl">
             <!-- 左侧按钮 -->
-            <a href="javascript:;" class="arrow-l"> &lt; </a>
+            <a href="javascript:;" class="arrow-l" @click="prev"> &lt; </a>
             <!-- 右侧按钮 -->
-            <a href="javascript:;" class="arrow-r"> &gt; </a>
+            <a href="javascript:;" class="arrow-r" @click="next"> &gt; </a>
             <!-- 核心的滚动区域 -->
             <ul>
                 <li>
-                    <a href="#"><img src="upload/focus.jpg" alt=""></a>
+                    <a href="#"><img :src="imgList[index]" alt=""></a>
                 </li>
-                <li>
-                    <a href="#"><img src="upload/focus1.jpg" alt=""></a>
-                </li>
-                <li>
-                    <a href="#"><img src="upload/focus2.jpg" alt=""></a>
-                </li>
-                <li>
-                    <a href="#"><img src="upload/focus3.jpg" alt=""></a>
-                </li>
+
             </ul>
             <!-- 小圆圈 -->
             <ol class="circle">
-
+                <li v-for="(item,index) in imgList" @click="changeImg(index)" :class="{current:isCurrent[index]}"></li>
             </ol>
         </div>
     </div>
     <!-- banner区域 end -->
-    <!-- 精品推荐区域 -->
 
     <!-- box核心区域 start -->
     <div class="box w">
@@ -185,7 +186,12 @@
     </div>
     <!-- box核心区域 end -->
 
-    <!-- 图片滚动 stat -->
+    <!-- 返回顶部 start -->
+    <div class="back">Top</div>
+
+    <!-- 返回顶部 end -->
+
+    <!-- 图片滚动区域 stat -->
     <div class="box-hd">
         <h3>EQUIPMENTS</h3>
     </div>
@@ -198,10 +204,47 @@
             <li><a href="#"><img src="images/i5.jpg" width="300px" height="250px" alt="" /></a></li>
             <li><a href="#"><img src="images/i6.jpg" width="300px" height="250px" alt="" /></a></li>
             <li><a href="#"><img src="images/i7.jpg" width="300px" height="250px" alt="" /></a></li>
+            <li><a href="#"><img src="images/i8.jpg" width="300px" height="250px" alt="" /></a></li>
         </ul>
     </div>
-    <!-- 图片滚动 end -->
-    
+    <!-- 图片滚动区域 end -->
+
+     <!-- 底部区域 start -->
+     <div class="bottom">
+        <div class="w">
+            <div class="infoleft">
+                <img src="images/logo.png" alt="">
+                <p>
+                    6th Floor, Building A3, Jinrui Lugu Science and Technology Park, <br>
+                    No.28 Tian Road, Changsha High-tech Development Zone
+                </p>
+                <a href="#">download APP</a>
+            </div>
+            <div class="inforight">
+                <dl>
+                    <dt>cooperative partner</dt>
+                    <dd><a href="#">SINOPEC</a></dd>
+                    <dd><a href="#">PetroChina</a></dd>
+                </dl>
+                
+               
+                
+                <dl>
+                    <dt>About us</dt>
+                    <dd><a href="#">About</a></dd>
+                    <dd><a href="#">Management team</a></dd>
+                    <dd><a href="#">Job opportunities</a></dd>
+                    <dd><a href="#">customer service</a></dd>
+                    <dd><a href="#">help</a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <!-- 底部区域 end -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/index.js"></script>
+
 </body>
 
 </html>

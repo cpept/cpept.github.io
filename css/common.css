@@ -24,14 +24,34 @@
     color: #c81623;
 }
 /* 头部区域 */
-.header{
-    position: relative;
-    height: 69px;
-    margin: 30px auto;
-}
 body{
     background-color: #f3f5f7;
-    height: 3000px;
+    /* height: 3000px; */
+}
+header{
+    /* display:block; */
+    width: 100%;
+    height: 99px;
+    padding: 15px;
+}
+
+.h-fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.h-transparent{
+    background-color: transparent;
+}
+.h-moving{
+    height: 79px;
+    padding: 5px;
+    background-color: #fcfcfc;
+    transition: 0.5s;
+}
+.header{
+    position: relative;
 }
 .logo{
     position: absolute;
@@ -62,12 +82,12 @@ body{
 }
 .nav>li>a{
     display: block;
-    height: 69px;
-    padding: 0 10px;
+    height: 59px;
+    padding: 5px 10px;
     font-size: 16px;
     color: #050505;
-    line-height: 69px;
-
+    line-height: 59px;
+    font-weight: 700;
 }
 .nav>li>a:hover{
     border-bottom: 2px solid #050505;
@@ -76,7 +96,7 @@ body{
 .nav ul{
     display: none;
     position: absolute;
-    top: 69px;
+    top: 59px;
     left: 0;
     background: rgba(0, 0, 0, .3);
     /* width: 320px; */
@@ -98,10 +118,61 @@ body{
     height: 41px;
     padding: 0 10px;
     font-size: 16px;
-    color: #ffffff;
+    color: #fff;
     line-height: 41px;
 }
 
 .nav ul li a:hover {
     background: rgba(0, 0, 0, .5);
+}
+
+/* 底部区域 */
+.bottom{
+    height: 260px;
+    background-color: #fcfcfc;
+    margin-top: 50px;
+}
+.bottom .w{
+    height: 260px;
+}
+.bottom .w .infoleft{
+    float: left;
+    margin: 30px 0 0 20px;
+}
+.bottom .w .infoleft p{
+    font-size: 14px;
+    color: #666666;
+    margin: 25px 0 15px 0;
+}
+.bottom .w .infoleft a{
+    display: block;
+    width: 128px;
+    height: 34px;
+    border: 1px solid #00a4ff;
+    font-size: 16px;
+    color: #00a4ff;
+    line-height: 34px;
+    text-align: center;
+}
+.bottom .w .inforight{
+    float: right;
+    margin: 30px 30px 0 0;
+}
+.inforight dl{
+    float: right;
+    margin-left: 120px;
+}
+.inforight dl dt{
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.inforight dl dd a{
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.inforight dl dd a:hover{
+    color: rgb(69, 164, 241);
 }
